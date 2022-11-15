@@ -1,5 +1,5 @@
 import { fetchFilmsById } from 'components/API/api';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useState } from 'react';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { WrapInfo } from './MoviesDetails.styled';
@@ -67,8 +67,9 @@ const MovieDetails = () => {
             </NavLink>
           </li>
         </ul>
-
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </div>
     );
   }

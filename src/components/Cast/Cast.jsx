@@ -2,7 +2,7 @@ import { fetchFilmsByCredits } from 'components/API/api';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { List } from './Cast.styled';
+import { List, ListItem } from './Cast.styled';
 import Default from '../../Images/Default.png';
 
 const Cast = () => {
@@ -28,7 +28,7 @@ const Cast = () => {
         <h3>Cast</h3>
         <List>
           {castData.map(el => (
-            <li key={el.id}>
+            <ListItem key={el.id}>
               <img
                 src={
                   el.profile_path && loaded
@@ -45,7 +45,7 @@ const Cast = () => {
                 <h3>Character</h3>
                 <p>{el.character}</p>
               </div>
-            </li>
+            </ListItem>
           ))}
         </List>
       </div>
